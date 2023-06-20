@@ -1,0 +1,92 @@
+
+.user-details-container{
+    width: 150%;
+    margin-top: 30px;
+    align-items: flex-start;
+    display: flex;
+    justify-content:space-between;
+    color: white;
+
+}
+
+
+.user-details{
+    display: flex;
+    align-items: flex-start;
+    color: white;
+}
+.tags_watched{
+    color: #7e7e7e;
+}
+
+.about_user{
+    color: #7e7e;
+}
+.user-name{
+    padding-left: 20px;
+    color: white;
+}
+.user-name p{
+    color: #7e7e7e;
+}
+.edit-profile-btn{
+    padding: 8px 10px;
+    border: solid 1px #7e7e7e;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.edit-profile-btn:hover{
+    border: 1px solid white;
+    color:white;
+    background-color: black;
+}
+.edit-profile-title{
+    padding: 20px 0px;
+    border-bottom: solid 1px #dbd9d9;
+    color: white;
+}
+.edit-profile-title-2{
+    color: grey;
+    font-weight: 400;
+    
+}
+.edit-profile-title-form{
+    width: 100%;
+    padding: 20px;
+    border: solid 1px #dbd9d9;
+    color: white;
+    border-radius: 5px;
+}
+.edit-profile-title-form label h3{
+    margin: 0%;
+    padding: 3px 0px;
+}
+.edit-profile-title-form label input, .edit-profile-title-form label textarea{
+    padding: 5px;
+    margin-bottom: 20px;
+    border: solid 1px #dbd9d9;
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+.user-submit-btn{
+    padding: 14px 10px;
+    background-color: #0a95ff;
+    color: white;
+    border:none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right:20px;
+}
+.user-submit-btn:hover{
+    background-color: #0074cc;
+}
+.user-cancel-btn{
+    padding: 14px 10px;
+    color: #0a95ff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
