@@ -10,6 +10,7 @@ export const signup = (authData,navigate)=>async (dispatch)=>{
         navigate('/')
     }
     catch(error){
+        alert("User already exists...")
         console.log(error)
 
     }

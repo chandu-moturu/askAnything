@@ -1,24 +1,24 @@
 import React,{useState} from 'react'
 import { useDispatch} from 'react-redux'
-import { fetchAllUsers, updateProfile } from '../../api'
+import {  fetchAllUsers,updateProfile } from '../../api'
 
 const EditProfileForm = ({currentUser,setSwitch}) => {
-    const [name, setName] = useState(currentUser.result.name)
-    const [about, setAbout] = useState(currentUser.result.about)
-    const [tags, setTags] = useState('')
+    const [name, setName] = useState(currentUser?.result?.name)
+    const [about, setAbout] = useState(currentUser?.result?.about)
+    const [tags, setTags] = useState([])
     const dispatch = useDispatch()
     const handleSubmit=(e)=>{
-        e.preventDefault()
+        e.preventDefaults()
         if(tags.length===0 || tags[0]==="")
         {
             alert("Update tag field")
-            updateProfile(currentUser?.result._id,{name,about})
         }
         else
         {
             dispatch(updateProfile(currentUser.result._id,{name,about,tags}))
+            setSwitch(false)
         }
-        setSwitch(false)
+        
         dispatch(fetchAllUsers())
     }
   return (
@@ -29,7 +29,7 @@ const EditProfileForm = ({currentUser,setSwitch}) => {
         <h2 className="edit-profile-title-2">
             Public information
         </h2>
-        <form  className="edit-profile-title-form" onSubmit={(e)=>handleSubmit()}>
+        <form  className="edit-profile-title-form" onSubmit={handleSubmit}>
             <label htmlFor="name">
                 <h3>Display name</h3>
                 <input type="text" value={name} onChange={(e)=> setName(e.target.value)}/>

@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
         type:String
     },
     tags:{
-        type:[String]
+        type: [String]
     },
     joinedOn:{
         type: Date,

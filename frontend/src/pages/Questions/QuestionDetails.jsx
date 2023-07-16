@@ -4,10 +4,10 @@ import { useParams , Link,useNavigate,useLocation} from 'react-router-dom'
 import { useSelector ,useDispatch} from 'react-redux'
 import copy from 'copy-to-clipboard'
 
+import { voteQuestion } from '../../actions/question'
 
-
-// import upvote from '../../assets/sort-up-solid.svg'
-// import downvote from '../../assets/sort-down-solid.svg'
+import upvote from '../../assets/uparrow.png'
+import downvote from '../../assets/downarrow.png'
 import './Questions.css'
 import Avatar from '../../components/Avatar/Avatar'
 import DisplayAnswers from './DisplayAnswers'
@@ -16,6 +16,7 @@ const QuestionDetails = () => {
     
     const { id } = useParams()
     const questionsList = useSelector(state=>state.questionsReducer)
+    
     const [Answer,setAnswer] = useState('')
     const Navigate=useNavigate()
     const dispatch=useDispatch()
@@ -25,7 +26,7 @@ const QuestionDetails = () => {
 
 
     const handlePostAns=(e,answerLength)=>{
-        e.preventDefault()
+        
         if(User===null){
             alert('login/signup to answer a question')
             Navigate('/Auth')
@@ -52,12 +53,12 @@ const QuestionDetails = () => {
         dispatch(deleteQuestion(id,Navigate))
     }
 
-    // const handleUpVote=()=>{
-    //     dispatch(voteQuestion(id,'upVote',User.result._id))
-    // }
-    // const handleDownVote=()=>{
-    //     dispatch(voteQuestion(id,'downVote',User.result._id))
-    // }
+    const handleUpVote=()=>{
+        dispatch(voteQuestion(id,'upVote',User.result._id))
+    }
+    const handleDownVote=()=>{
+        dispatch(voteQuestion(id,'downVote',User.result._id))
+    }
 
 
 
@@ -75,9 +76,9 @@ const QuestionDetails = () => {
                             <h1>{question.questionTitle}</h1>
                             <div className='qustion-details-container-2'>
                                 <div className="question-votes">
-                                    {/* <img src={upvote} alt="upvote" width='18' className='votes-icon' onClick={handleUpVote}/> */}
+                                    <img src={upvote} alt="upvote" width='18' className='votes-icon' onClick={handleUpVote}/>
                                     <p>{question.upVote.length - question.downVote.length}</p>
-                                    {/* <img src={downvote} alt="downvote" width='18' className='votes-icon' onClick={handleDownVote}/> */}
+                                    <img src={downvote} alt="downvote" width='18' className='votes-icon' onClick={handleDownVote}/>
                                 </div>
                                 <div style={{width:"100%"}} >
                                     <p className='question-body'>{question.questionBody}</p>

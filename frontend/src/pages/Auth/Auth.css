@@ -1,11 +1,12 @@
 
 .login-logo{
-    width: 100px;
+    width: 50px;
+    height: 30px;
 }
 .auth-section{
     display: flex;
     gap: 29px;
-    justify-content:center;
+    justify-content:space-evenly;
     align-items: center;
 }
 .auth-container-1{
@@ -14,7 +15,7 @@
     flex-direction: column;
     border: solid white 0px 1px 0px 1px;
     padding:20px;
-    margin-right: 30px;
+    
 }
 .login-logo{
     padding: 20px 30px;
@@ -37,28 +38,25 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    box-shadow: 0 10px 25px rgb(0 0 0 / 5%)
-    0 20px 48px rgb(0 0 0 / 5%)
-    0 1px 4px rgb(0 0 0 / 10%);
+  
 }
 .auth-container-2 form label input{
     padding: 10px;
-    width: 80%;
+    min-width: 90%;
     border: solid 1px #0000003e;
+    border-radius: 5px;
     font-size: 12px;
 
 }
 .auth-container-2 form label:nth-clild(1) h4,
 .auth-container-2 form label:nth-clild(2) h4,
-.auth-container-2 form label:nth-clild(3) h4{
+.auth-container-2 form label:nth-clild(3) h4,
+.auth-container-2 form label:nth-clild(4) h4{
     margin-bottom: 100px;
     margin-top:5px;
     
 }
-.auth-container-2 form label:nth-child(4){
-    display: flex;
-}
+
 .auth-container-2 form label:nth-child(4) input{
     width: 15%;
     margin: 13px 0px;

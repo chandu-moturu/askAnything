@@ -7,6 +7,7 @@ export const signup = async(req,res)=>{
     try{
         const existinguser=await users.findOne({email});
         if(existinguser){
+            alert("user already exists...")
             return res.status(404).json({message:'Email already exists...'})
 
         }

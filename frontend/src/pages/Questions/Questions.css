@@ -1,5 +1,5 @@
 .question-details-page{
-    background-color: grey;
+    background: transparent linear-gradient(90deg,#e500ff,#8200ff) repeat scroll 0 0;
     width: 120%;
     float: left;
     margin: 25px 30px;
