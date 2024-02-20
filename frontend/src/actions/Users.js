@@ -8,6 +8,8 @@ export const fetchAllUsers =()=>async(dispatch)=>{
         console.log(error)
     }
 }
+
+
 export const updateProfile = (id,updateData)=>async(dispatch)=>{
     try {
         const {data} = await api.updateProfile(id,updateData)

@@ -10,21 +10,25 @@ const DisplayAnswers = ({ question, handleShare }) => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const { id } = useParams();
-
+  
   const handleDelete = (answerId, noOfAnswers) => {
     dispatch(deleteAnswer(id, answerId, noOfAnswers - 1));
   };
+ 
+  console.log(User.result._id)
   return (
     <div>
       {question.answer.map((ans) => (
         <div className="display-ans" key={ans._id}>
+          {console.log(ans._id)}
           <p>{ans.answerBody}</p>
           <div className="question-actions-user">
             <div>
               <button type="button" onClick={handleShare}>
                 Share
               </button>
-              {User?.result?._id === ans?.userId && (
+              {User?.result?._id === ans.userId &&(
+                
                 <button
                   type="button"
                   onClick={() => handleDelete(ans._id, question.noOfAnswers)}
@@ -38,7 +42,7 @@ const DisplayAnswers = ({ question, handleShare }) => {
               <Link
                 to={`/users/${ans.userId}`}
                 className="user-link"
-                style={{ color: "#0086d8" }}
+                style={{ color: "#000000" }}
               >
                 <Avatar
                   backgroundColor="green"

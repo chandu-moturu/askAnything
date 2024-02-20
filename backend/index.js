@@ -12,15 +12,11 @@ app.use(express.json({limit:'30mb',entended: true}))
 app.use(express.urlencoded({limit:"30mb",extended:true}))
 app.use(cors());
 
-app.get('/',(req,res)=>{
-    res.send("hello there")
-})
-
 app.use('/user',userRoutes)
 app.use('/questions',questionRoutes)
 app.use('/answer',answerRoutes)
 
-const PORT=process.env.port || 5000
+const PORT=process.env.PORT_NO
 const DATABASE_URI = process.env.CONNECTION_URI
 mongoose.connect(DATABASE_URI,{useNewURlParser:true,useUnifiedTopology:true})
     .then(()=>app.listen(PORT,()=>{console.log(`server running on port ${PORT}`)}))

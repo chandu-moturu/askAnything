@@ -45,3 +45,9 @@
     border-right: solid 3px red;
     border-radius: 20px 0px;
 }
+
+@media screen and (max-width:700px){
+    .Left-sidebar{
+        /*  */
+    }
+}

@@ -26,7 +26,7 @@ const QuestionDetails = () => {
 
 
     const handlePostAns=(e,answerLength)=>{
-        
+        e.preventDefault();
         if(User===null){
             alert('login/signup to answer a question')
             Navigate('/Auth')
@@ -71,8 +71,7 @@ const QuestionDetails = () => {
             {
                 questionsList.data.filter(question => question._id === id).map(question => (
                     <div key={question._id}>
-                        {console.log(question)}
-                        <section className='question-details-container'>
+                        <section className='question-details-container section'>
                             <h1>{question.questionTitle}</h1>
                             <div className='qustion-details-container-2'>
                                 <div className="question-votes">
@@ -102,7 +101,7 @@ const QuestionDetails = () => {
                                         </div>
                                         <div>
                                             <p>asked {moment(question.askedOn).fromNow()}</p>
-                                            <Link to={`/users/${question.userId}`} className='user-link' style={{color: '#0086d8' }}>
+                                            <Link to={`/users/${question.userId}`} className='user-link' style={{color: 'black' }}>
                                                 <Avatar backgroundColor="orange" px="10px" py="5px">{question.userPosted.charAt(0).toUpperCase()}</Avatar>
                                                 <div>
                                                     {question.userPosted}
@@ -113,17 +112,19 @@ const QuestionDetails = () => {
                                 </div>
                             </div>
                         </section>
+
+
                         {
                             question.noOfAnswers !==0 && (
-                                <section>
+                                <section className='section'>
                                     <h3>{question.noOfAnswers} Answers</h3>
                                     <DisplayAnswers key={question._id} question={question} handleShare={handleShare}/>
                                 </section>
                             )
                                 
-                            
                         }
-                        <section className="post-ans-container">
+
+                        <section className="post-ans-container section">
                             <h3>Your Answer</h3>
                             <form onSubmit={(e)=>{handlePostAns(e,question.answer.length)}}>
                                 <textarea name="" id="" cols="30" rows="10" onChange={(e)=>setAnswer(e.target.value)}></textarea>
@@ -138,7 +139,7 @@ const QuestionDetails = () => {
                                     )
                                 }
                                 or
-                                <Link to='/AskQuestion' style={{textDecoration: "none",color:"#009dff"}}>Ask your Own question</Link>
+                                <Link to='/AskQuestion' style={{textDecoration: "none",color:"black"}}>Ask your Own question</Link>
 
                             </p>
                         </section>

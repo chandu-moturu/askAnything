@@ -19,7 +19,7 @@ export const deleteQuestion =(id)=>API.delete(`/questions/delete/${id}`);
 export const voteQuestion =(id, value)=>API.patch(`/questions/vote/${id}`,{value})
 
 export const postAnswer=(id,noOfAnswers,answerBody,userAnswered)=>API.patch(`/answer/post/${id}`,{noOfAnswers,answerBody,userAnswered});
-export const deleteAnswer=(id,answerId,noOfAnswers)=>API.patch(`/answer/delete/${id}`,{answerId,noOfAnswers});
+export const deleteAnswer=(id,answerId,noOfAnswers)=>API.delete(`/answer/delete/${id}`,{answerId,noOfAnswers});
 
 export const fetchAllUsers=()=>API.get('/user/getAllUsers');
 export const updateProfile=(id,updateData)=>API.patch(`/user/update/${id}`,updateData)

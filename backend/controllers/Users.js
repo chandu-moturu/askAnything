@@ -15,7 +15,7 @@ export const getAllUsers = async(req,res)=>{
     }
     catch(error){
         res.status(404).json({message:'cannot get users'})
-       console.log("error in getallusers")
+        console.log("error in getallusers")
     }
 }
 

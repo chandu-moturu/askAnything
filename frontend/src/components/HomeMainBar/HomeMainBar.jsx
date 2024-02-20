@@ -10,63 +10,6 @@ const HomeMainBar = () => {
 
   const questionsList = useSelector(state=>state.questionsReducer)
 
-
-//   var questionsList=[{
-//     _id:'1',
-//     upVotes:9,
-//     downVotes:3,
-//     noOfAnswers:10,
-//     questionTitle:"who is beautiful",
-//     questionBody:"Iam beautiful",
-//     questionTags:["C","Ruby","Java"],
-//     userPosted:"innocent",
-//     askedOn:'sep 8',
-//     userId:1,
-//     answer: [{
-//       answerBody: 'Answer',
-//       userAnswered:'kumar',
-//       answeredOn:'sep 10',
-//       userId:2,
-//     }]
-
-
-// },{
-//   _id:'2',
-//   upVotes:5,
-//   downVotes:1,
-//   noOfAnswers:6,
-//   questionTitle:"who is beautiful",
-//   questionBody:"Iam beautiful",
-//   questionTags:["Python","Ruby","Java"],
-//   userPosted:"innocent",
-//   askedOn:'sep 8',
-//   userId:1,
-//     answer: [{
-//       answerBody: 'Answer',
-//       userAnswered:'kumar',
-//       answeredOn:'sep 10',
-//       userId:2,
-//     }]
-
-// },{
-//   _id:'3',
-//   upVotes:5,
-//   downVotes:2,
-//   noOfAnswers:5,
-//   questionTitle:"who is beautiful",
-//   questionBody:"Iam beautiful",
-//   questionTags:["C","C++","Java"],
-//   userPosted:"innocent",
-//   askedOn:'sep 8',
-//   userId:1,
-//     answer: [{
-//       answerBody: 'Answer',
-//       userAnswered:'kumar',
-//       answeredOn:'sep 10',
-//       userId:2,
-//     }]
-
-// }]
   const checkAuth=()=>
   {
     if(user === null){

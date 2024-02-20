@@ -1,26 +1,25 @@
-import React,{useState} from 'react'
+import React,{ useState} from 'react'
 import { useDispatch} from 'react-redux'
-import {  fetchAllUsers,updateProfile } from '../../api'
+import { updateProfile } from '../../actions/Users'
 
 const EditProfileForm = ({currentUser,setSwitch}) => {
     const [name, setName] = useState(currentUser?.result?.name)
     const [about, setAbout] = useState(currentUser?.result?.about)
     const [tags, setTags] = useState([])
     const dispatch = useDispatch()
-    const handleSubmit=(e)=>{
-        e.preventDefaults()
-        if(tags.length===0 || tags[0]==="")
-        {
-            alert("Update tag field")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(tags.length === 0){
+            dispatch(updateProfile( currentUser?.result?._id, { name, about, tags: currentUser?.result?.tags }))
+        } else{
+            dispatch(updateProfile( currentUser?.result?._id, { name, about, tags }))
         }
-        else
-        {
-            dispatch(updateProfile(currentUser.result._id,{name,about,tags}))
-            setSwitch(false)
-        }
-        
-        dispatch(fetchAllUsers())
+        setSwitch(false)
     }
+
+ 
+
   return (
     <div>
         <h1 className='edit-profile-title'>

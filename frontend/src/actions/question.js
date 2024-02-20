@@ -22,9 +22,9 @@ export const fetchAllQuestion=()=>async(dispatch)=>{
       console.log(error)
    }
 }
-export const deleteQuestion=(id,navigate)=>async (dispatch)=>{
+export const deleteQuestion=(_id,navigate)=>async (dispatch)=>{
    try{
-      await api.deleteQuestion(id)
+      await api.deleteQuestion(_id)
       dispatch(fetchAllQuestion())
       navigate('/')
    }
@@ -33,9 +33,9 @@ export const deleteQuestion=(id,navigate)=>async (dispatch)=>{
    }
 }
 
-export const voteQuestion=(id,value,userId)=>async (dispatch)=>{
+export const voteQuestion=(_id,value,userId)=>async (dispatch)=>{
    try{
-      await api.voteQuestion(id,value,userId)
+      await api.voteQuestion(_id,value,userId)
       dispatch(fetchAllQuestion())
    }
    catch(error)
