@@ -37,7 +37,7 @@ const AskQuestion = () => {
                 <label htmlFor="ask-ques-body">
                   <h4>Body</h4>
                   <p>Write the body here</p>
-                  <textarea name="" id="ask-ques-body" onChange={(e)=>{setQuestionBody(e.target.value)}} cols="30" rows="10" onKeyPress={handleEnter}></textarea>
+                  <textarea name="" id="ask-ques-body" onChange={(e)=>{setQuestionBody(e.target.value)}} cols="30" rows="7" onKeyPress={handleEnter}></textarea>
                 </label>
                 <label htmlFor="ask-ques-tags">
                   <h4>Tags</h4>

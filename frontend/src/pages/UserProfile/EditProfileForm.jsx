@@ -1,24 +1,27 @@
-import React,{ useState} from 'react'
+import React,{useState} from 'react'
+
 import { useDispatch} from 'react-redux'
 import { updateProfile } from '../../actions/Users'
+import { useNavigate } from 'react-router-dom'
 
 const EditProfileForm = ({currentUser,setSwitch}) => {
-    const [name, setName] = useState(currentUser?.result?.name)
-    const [about, setAbout] = useState(currentUser?.result?.about)
+    const [name, setName] = useState(currentUser.result.name)
+    const [about, setAbout] = useState(currentUser.result.about)
     const [tags, setTags] = useState([])
     const dispatch = useDispatch()
+    const Navigate = useNavigate()
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault(e)
         if(tags.length === 0){
-            dispatch(updateProfile( currentUser?.result?._id, { name, about, tags: currentUser?.result?.tags }))
+            dispatch(updateProfile( currentUser?.result?._id, { name:name, about:about, tags: currentUser.result.tags }),Navigate)
         } else{
-            dispatch(updateProfile( currentUser?.result?._id, { name, about, tags }))
+            dispatch(updateProfile( currentUser?.result?._id, { name:name, about:about, tags:tags }),Navigate)
         }
         setSwitch(false)
-    }
+      
 
- 
+    }
 
   return (
     <div>
@@ -28,7 +31,7 @@ const EditProfileForm = ({currentUser,setSwitch}) => {
         <h2 className="edit-profile-title-2">
             Public information
         </h2>
-        <form  className="edit-profile-title-form" onSubmit={handleSubmit}>
+        <form  className="edit-profile-title-form" onSubmit={(e)=>handleSubmit(e)}>
             <label htmlFor="name">
                 <h3>Display name</h3>
                 <input type="text" value={name} onChange={(e)=> setName(e.target.value)}/>

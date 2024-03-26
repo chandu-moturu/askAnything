@@ -2,24 +2,17 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import log from '../../assets/login.png'
-
-// import '../../firebase/firebase'
-// import { getAuth,signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
-
 import "./Auth.css";
-// import icon from '../../assets/logo.png'
 import AboutAuth from "./AboutAuth";
 import { signup, login } from "../../actions/auth";
-// import { logIn } from '../../api';
+
 
 const Auth = () => {
   const [isSignup, setisSignup] = useState(false);
   const [isPhone, setisPhone] = useState(true);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState();
-  // const [otp, setOtp] = useState();
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,63 +43,6 @@ const Auth = () => {
     }
   };
 
-  //////
-
-  // const configureCaptcha = () => {
-  //   const auth = getAuth();
-  //   window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
-  //     'size': 'invisible',
-  //     'callback': (response) => {
-  //     onSignInSubmit();
-  //     },
-  //     defaultCountry:"IN"
-  //   }, auth);
-  // }
-
-  // const onSignInSubmit = (e) => {
-  //     e.preventDefault()
-  //     if(phone.length !== 10){
-  //       alert("Enter Valid Phone Number")
-  //     }
-
-  //     const phoneNumber = "+91" + phone
-
-  //     try{
-  //       configureCaptcha();
-  //       const appVerifier = window.recaptchaVerifier;
-
-  //       const auth = getAuth();
-  //       signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-  //       .then((confirmationResult) => {
-  //       window.confirmationResult = confirmationResult;
-
-  //     })
-  //     }
-
-  //     catch(error) {
-  //       console.log(error)
-  //   console.log("SMS not sent")
-  //     };
-  // }
-  // const onSubmitOtp = (e) => {
-  //     e.preventDefault()
-  //     try{
-  //       const code = otp
-
-  //       window.confirmationResult.confirm(code).then((result) => {
-  //       const user = result.user;
-  //       alert("User is Verified");
-  //       dispatch(logIn(phone,navigate))
-  //       })
-  //     }
-  //       catch(error){
-  //         alert("Enter valid Phone Number")
-
-  //     };
-
-  // }
-
-  //////
   return (
     <section className="auth-section">
       {isSignup && <AboutAuth />}
@@ -163,7 +99,7 @@ const Auth = () => {
                       name="otp"
                       id="otp"
                       onChange={(e) => {
-                        // setOtp(e.target.value);
+
                       }}
                     />
                   </label>
@@ -180,7 +116,7 @@ const Auth = () => {
                 {!isSignup && (
                   <p
                     style={{
-                      color: "#007ac6",
+                      color: "#76ABAE",
                       fontSize: "13px",
                       cursor: "pointer",
                     }}

@@ -1,53 +1,45 @@
 .Left-sidebar
 {
     position:fixed;
-    border-radius: 20px 0px;
+    border-radius: 10px;
     margin:100px 0px 0px 20px;
-    background-color: grey;
+    background-color: #31363F;
     justify-content: flex-start;
     width: 200px;
     transition:box-shadow ease-in-out 0.1s,transform ease-in-out 0.1s;
-    /* transform: translateZ(0); */
 }
+
 .side-nav{
     text-align: center;
-    width: inherit;
     position: relative;
-    
     margin: 20px;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
-.side-nav-div{
-    padding:10px 0px;
 
-}
-.side-nav-div div{
-    padding-left: 10px;
-}
 .side-nav-links{
     text-decoration: none;
-    color: yellow;
+    color: #EEEEEE;
     display: flex;
+    gap: 15px;
     align-items: center;
     justify-content: flex-start;
     padding-left: 10px;
     transition: 0.2s;
 }
-.side-nav-links:hover{
-    color:red;
-    text-decoration: none;
-
+.side-nav-links img{
+    width: 18px;
 }
+
+.side-nav-links:hover{
+    color:#EEEEEE;
+}
+
 .active{
     font-weight: bolder;
-    color: black;
-    background-color: greenyellow;
-    border-right: solid 3px red;
-    border-radius: 20px 0px;
+    color: #EEEEEE;
+    background-color:#76ABAE ;
+    border-radius: 10px;
 }
-
-@media screen and (max-width:700px){
-    .Left-sidebar{
-        /*  */
-    }
+.active:hover{
+    background-color: #527d7f;
 }

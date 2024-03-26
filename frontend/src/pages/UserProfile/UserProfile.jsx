@@ -27,7 +27,7 @@ const UserProfile = () => {
                 <div className="user-details-container">
                     <div className="user-details">
     
-                        <Avatar  backgroundColor="purple" color="white" fontSize='50px' px='40px' py='30px'>
+                        <Avatar  backgroundColor="#76abae" color="white" fontSize='50px' px='40px' py='30px' borderRadius='10px'>
                              {currentProfile?.name.charAt(0).toUpperCase()}
                         </Avatar>
                         <div className="user-name">

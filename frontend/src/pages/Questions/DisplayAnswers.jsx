@@ -14,13 +14,10 @@ const DisplayAnswers = ({ question, handleShare }) => {
   const handleDelete = (answerId, noOfAnswers) => {
     dispatch(deleteAnswer(id, answerId, noOfAnswers - 1));
   };
- 
-  console.log(User.result._id)
   return (
     <div>
       {question.answer.map((ans) => (
         <div className="display-ans" key={ans._id}>
-          {console.log(ans._id)}
           <p>{ans.answerBody}</p>
           <div className="question-actions-user">
             <div>
@@ -42,17 +39,18 @@ const DisplayAnswers = ({ question, handleShare }) => {
               <Link
                 to={`/users/${ans.userId}`}
                 className="user-link"
-                style={{ color: "#000000" }}
+                style={{ color: "#76ABAE" }}
               >
                 <Avatar
-                  backgroundColor="green"
-                  color="black"
+                  backgroundColor="#76ABAE"
+                  color="#EEEEEE"
                   px="10px"
                   py="5px"
+                  borderRadius='10px'
                 >
                   {ans.userAnswered.charAt(0).toUpperCase()}
                 </Avatar>
-                <div>{ans.userAnswered}</div>
+                <div color="#76ABAE">{ans.userAnswered}</div>
               </Link>
             </div>
           </div>

@@ -3,20 +3,20 @@
 }
 
 .ask-ques-container h1{
-    color: white;
+    color: #EEEEEE;
     padding:80px 0px 20px 0px;
 }
 .ask-ques-container form .ask-form-container{
     padding: 20px;
-    background-color: grey;
-    border-radius: 10px 0px;
-    box-shadow: 3px 3px 10px rgb(0 0 0 /5%),
-    -3px -3px 10px rgb(0 0 0 /5%);
+    background-color: #31363F;
+    border-radius: 10px;
 }
 .ask-form-container label h4{
+    color: #EEEEEE;
     margin-bottom: 0%;
 }
 .ask-form-container label p{
+    color: #76ABAE;
     margin: 0%;
     font-size: 13px;
     padding: 3px 0px;
@@ -24,25 +24,26 @@
 .ask-form-container label input,
 .ask-form-container label textarea{
     padding: 10px;
+    color: #EEEEEE;
     background-color: transparent;
-    border: solid 1px black;
+    border: solid 1px #222831;
     font-family: 'Roboto',sams-serif;
     width: 98%;
     resize: vertical;
-    border-radius: 10px 0px;
+    border-radius: 10px;
 
 }
 .review-btn{
     margin: 30px 0px;
     padding: 10px;
-    background-color: #009dff;
-    border: solid 1px #009dff;
-    color: white;
-    border-radius: 10px 0px;
+    background-color: #76ABAE;
+    border: solid 1px #76ABAE;
+    color: #EEEEEE;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
 }
 .review-btn:hover{
-    background-color: #0086d8;
+    background-color: #76ABAE;
 }
 

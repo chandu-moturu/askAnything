@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import decode from "jwt-decode";
 
 import { setCurrentUser } from "../../actions/currentUser";
-// import logo from '../../assets/logo.png'
-import search from "../../assets/search-solid.svg";
 import Avatar from "../Avatar/Avatar";
 import "./Navbar.css";
 
@@ -20,25 +18,6 @@ const Navbar = () => {
     dispatch(setCurrentUser(null));
   };
 
-  // const checkForExpiredUser=()=>{
-  //   const user = JSON.parse(localStorage.getItem('profile'))
-  //   let token
-  //   if(user){
-  //     token=user.token
-  //   }
-  //   else{
-  //     handleLogout()
-  //   }
-  //   if(token){
-  //     const decodeToken = decode(token)
-  //     const HOUR_IN_SECONDS = 60*60
-
-  //     dispatch(setCurrentUser(user))
-  //     if(decodeToken.exp*3*HOUR_IN_SECONDS < new Date().getTime()){
-  //       handleLogout()
-  //     }
-  //   }
-  // }
   useEffect(() => {
     const token = User?.token;
     if (token) {
@@ -48,13 +27,9 @@ const Navbar = () => {
       }
     }
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("profile"))));
-    // checkForExpiredUser()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, User?.token]);
 
-  const handleSearch = (e) => {
-    // alert(e)
-  };
 
   return (
     <div className="main-nav">
@@ -62,9 +37,6 @@ const Navbar = () => {
         AskC
       </Link>
       <div className="navbar">
-        <form>
-          <input type="text" placeholder="Search..." className="nav-item" onChange={(e)=>handleSearch(e.target.value)} style={{color:"black",textDecoration:'none'}}/>
-        </form>
 
         <Link to="/About" className="nav-item nav-btn">
           About
@@ -85,7 +57,7 @@ const Navbar = () => {
         ) : (
           <>
             <Avatar
-              backgroundColor="#009dff"
+              backgroundColor="#76abae"
               px="12px"
               py="7px"
               borderRadius="50%"
