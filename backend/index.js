@@ -6,8 +6,7 @@ import questionRoutes from "./routes/Questions.js";
 import answerRoutes from "./routes/Answers.js";
 import chatRoutes from './routes/Chat.js';
 import dotenv from "dotenv";
-// import colors from "colors";
-// import {notFound,errorHandler} from "./middlewares/errorMiddleware.js";
+
 
 
 const app = express();
@@ -21,8 +20,7 @@ app.use("/questions", questionRoutes);
 app.use("/answer", answerRoutes);
 app.use("/chat", chatRoutes);
 
-// app.use(notFound);
-// app.use(errorHandler);
+
 
 
 const PORT = process.env.PORT_NO;
