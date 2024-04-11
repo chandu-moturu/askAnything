@@ -37,16 +37,17 @@ const Navbar = () => {
         AskC
       </Link>
       <div className="navbar">
-
-        <Link to="/About" className="nav-item nav-btn">
-          About
-        </Link>
-        <Link to="/Products" className="nav-item nav-btn">
-          Products
-        </Link>
-        <Link to="/Teams" className="nav-item nav-btn">
-          For Teams
-        </Link>
+        <div className="nav-quick-links">
+          <Link to="/About" className="nav-item nav-btn">
+            About
+          </Link>
+          <Link to="/Products" className="nav-item nav-btn">
+            Products
+          </Link>
+          <Link to="/Teams" className="nav-item nav-btn">
+            For Teams
+          </Link>
+        </div>
 
         {User === null ? (
           <>

@@ -1,45 +1,64 @@
-.Left-sidebar
-{
-    position:fixed;
-    border-radius: 10px;
-    margin:100px 0px 0px 20px;
-    background-color: #31363F;
-    justify-content: flex-start;
-    width: 200px;
-    transition:box-shadow ease-in-out 0.1s,transform ease-in-out 0.1s;
+.Left-sidebar {
+  position: fixed;
+  border-radius: 10px;
+  margin: 100px 0px 0px 20px;
+  background-color: #31363f;
+  justify-content: flex-start;
+  width: 200px;
+  transition: box-shadow ease-in-out 0.1s, transform ease-in-out 0.1s;
 }
 
-.side-nav{
-    text-align: center;
-    position: relative;
-    margin: 20px;
-    padding: 10px 0px;
+.side-nav {
+  text-align: center;
+  position: relative;
+  margin: 20px;
+  padding: 10px 0px;
 }
 
-.side-nav-links{
-    text-decoration: none;
-    color: #EEEEEE;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 10px;
-    transition: 0.2s;
+.side-nav-links {
+  text-decoration: none;
+  color: #eeeeee;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+  transition: 0.2s;
 }
-.side-nav-links img{
-    width: 18px;
-}
-
-.side-nav-links:hover{
-    color:#EEEEEE;
+.side-nav-links img {
+  width: 18px;
 }
 
-.active{
-    font-weight: bolder;
-    color: #EEEEEE;
-    background-color:#76ABAE ;
-    border-radius: 10px;
+.side-nav-links:hover {
+  color: #eeeeee;
 }
-.active:hover{
-    background-color: #527d7f;
+
+.active {
+  font-weight: bolder;
+  color: #eeeeee;
+  background-color: #76abae;
+  border-radius: 10px;
+}
+.active:hover {
+  background-color: #527d7f;
+}
+
+@media screen and (max-width: 420px) {
+  .Left-sidebar {
+    width: 60px;
+    margin-left: 0px;
+    overflow: hidden;
+    padding: 2px;
+  }
+  .Left-sidebar .side-nav {
+    padding: 8px;
+    margin: 0px;
+  }
+  .side-nav-links {
+    gap: 50px;
+    height: 45px;
+  }
+  .side-nav-links img {
+    padding-left: 3px;
+  }
 }

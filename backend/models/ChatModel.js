@@ -1,8 +1,3 @@
-// chatName
-// isGroupChat
-// users
-// latestMessage
-// groupAdmin
 
 import mongoose from 'mongoose';
 

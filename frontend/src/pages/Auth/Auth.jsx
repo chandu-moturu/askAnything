@@ -14,6 +14,8 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState();
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [pic,setPic]= useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -37,11 +39,32 @@ const Auth = () => {
       if (!phone) {
         alert("Enter your phone number");
       }
-      dispatch(signup({ name, email, phone, password }, navigate));
+      dispatch(signup({ name, email, phone, password,pic}, navigate));
     } else {
       dispatch(login({ email, password }, navigate));
     }
   };
+
+  const postDetails = (pic) =>{
+    setLoading(true);
+    if(pic === undefined){
+      console.log("error");
+    }
+
+    if(pic.type === "image/jpeg" || pic.type === "image/png"){
+      const data = new FormData();
+      data.append("file",pic);
+      data.append("upload_preset","Cluster");
+      data.append("cloud_name", "chandu-moturu");
+      fetch("https://api.cloudinary.com/v1_1/chandu-moturu/image/upload",{method:'post',body:data}).then((res) => res.json()).then(data=>{
+        setPic(data.url.toString());
+        console.log(data.url.toString());
+        setLoading(false);
+      })
+    }else{
+      alert('error in image');
+    }
+  }
 
   return (
     <section className="auth-section">
@@ -90,7 +113,7 @@ const Auth = () => {
                 />
               </label>
 
-              {(!isSignup) && (
+              {!isSignup && (
                 <>
                   <label htmlFor="otp">
                     <h4>Otp</h4>
@@ -98,21 +121,18 @@ const Auth = () => {
                       type="number"
                       name="otp"
                       id="otp"
-                      onChange={(e) => {
-
-                      }}
+                      onChange={(e) => {}}
                     />
                   </label>
-                  
                 </>
               )}
             </>
           )}
           {(!isPhone || isSignup) && (
             <label htmlFor="password">
-              <div style={{display:"flex",justifyContent:'space-between'}}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h4>Password</h4>
-                
+
                 {!isSignup && (
                   <p
                     style={{
@@ -124,22 +144,34 @@ const Auth = () => {
                     forgot password?
                   </p>
                 )}
-
               </div>
               <div>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
               </div>
-              
             </label>
           )}
-  
+          {isSignup && (
+            <label htmlFor="name">
+              <h4>Upload Profile pic</h4>
+              <input
+                type="file"
+                id="name"
+                name="name"
+                accept="image/*"
+                onChange={(e) => {
+                  postDetails(e.target.files[0]);
+                }}
+              />
+            </label>
+          )}
+
           <button type="submit" className="auth-btn">
             {isSignup ? "Sign up" : "Log in"}
           </button>
@@ -156,7 +188,6 @@ const Auth = () => {
           )}
         </form>
 
-
         <p>
           {isSignup ? "already have an account?" : "Don't have an account?"}
 
@@ -164,6 +195,7 @@ const Auth = () => {
             type="button"
             className="handle-switch-btn"
             onClick={handleSwitch}
+            isLoading={loading}
           >
             {isSignup ? "log in" : "sign up"}
           </button>

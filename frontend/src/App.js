@@ -7,7 +7,7 @@ import AllRoutes from './AllRoutes'
 // import Home from './pages/Home/Home'
 import {fetchAllQuestion} from './actions/question'
 import { fetchAllUsers } from './actions/Users';
-import Footer from './components/footer/Footer';
+
 
 function App() {
   const dispatch=useDispatch()
@@ -25,7 +25,7 @@ function App() {
         <AllRoutes/>
       </Router>
     </div>
-    {/* <Footer/> */}
+   
     </div>
 
   );

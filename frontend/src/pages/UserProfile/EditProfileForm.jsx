@@ -9,14 +9,14 @@ const EditProfileForm = ({currentUser,setSwitch}) => {
     const [about, setAbout] = useState(currentUser.result.about)
     const [tags, setTags] = useState([])
     const dispatch = useDispatch()
-    const Navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault(e)
         if(tags.length === 0){
-            dispatch(updateProfile( currentUser?.result?._id, { name:name, about:about, tags: currentUser.result.tags }),Navigate)
+            dispatch(updateProfile( currentUser?.result?._id, { name:name, about:about, tags: currentUser.result.tags }),navigate)
         } else{
-            dispatch(updateProfile( currentUser?.result?._id, { name:name, about:about, tags:tags }),Navigate)
+            dispatch(updateProfile( currentUser?.result?._id, { name:name, about:about, tags:tags }),navigate)
         }
         setSwitch(false)
       
