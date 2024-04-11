@@ -6,7 +6,7 @@ import questionRoutes from "./routes/Questions.js";
 import answerRoutes from "./routes/Answers.js";
 import chatRoutes from './routes/Chat.js';
 import dotenv from "dotenv";
-import colors from "colors";
+// import colors from "colors";
 // import {notFound,errorHandler} from "./middlewares/errorMiddleware.js";
 
 
@@ -31,7 +31,7 @@ mongoose
   .connect(DATABASE_URI, { useNewURlParser: true, useUnifiedTopology: true })
   .then(() =>
     app.listen(PORT, () => {
-      console.log(`server running on port ${PORT}`.magenta.bold);
+      console.log(`server running on port ${PORT}`);
     })
   )
   .catch((err) => {
