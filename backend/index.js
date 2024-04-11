@@ -19,6 +19,9 @@ app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);
 app.use("/answer", answerRoutes);
 app.use("/chat", chatRoutes);
+app.get('/',(req,res) =>{
+  res.send("server is running")
+})
 
 
 
