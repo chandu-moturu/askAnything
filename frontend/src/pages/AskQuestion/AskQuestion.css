@@ -8,7 +8,9 @@
 }
 .ask-ques-container form .ask-form-container{
     padding: 20px;
-    background-color: #31363F;
+    /* background-color: #31363F; */
+    border: solid 1px #EEEEEE;
+    background-color: transparent;
     border-radius: 10px;
 }
 .ask-form-container label h4{
@@ -25,8 +27,9 @@
 .ask-form-container label textarea{
     padding: 10px;
     color: #EEEEEE;
-    background-color: transparent;
-    border: solid 1px #222831;
+    background-color: #31363F;
+    /* border: solid 1px #222831; */
+    border: solid 1px #EEEEEE;
     font-family: 'Roboto',sams-serif;
     width: 98%;
     resize: vertical;

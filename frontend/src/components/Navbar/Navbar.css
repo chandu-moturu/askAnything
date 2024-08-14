@@ -33,6 +33,7 @@
     transition: 0.2s;
 }
 .nav-logo{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 10px;
     margin-left: 100px;
     color: #EEEEEE;

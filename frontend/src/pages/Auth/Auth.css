@@ -34,7 +34,9 @@
     color: #EEEEEE;
     width: 100%;
     padding: 20px 40px;
-    background-color: #31363f;
+    /* background-color: #31363f; */
+    border: 1px solid #EEEEEE;
+
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -45,6 +47,8 @@
     min-width: 90%;
     background-color: #31363f;
     border: solid 2px #222831;
+    border: 1px solid #EEEEEE;
+
     color: #EEEEEE;
     border-radius: 5px;
     font-size: 12px;
@@ -76,7 +80,7 @@
     font-weight: 500;
 }
 .auth-btn:hover{
-    background-color: #76ABAE;
+    background-color: #527d7f;
 }
 .handle-switch-btn{
     background-color: transparent;

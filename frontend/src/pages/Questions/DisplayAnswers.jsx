@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 
-import Avatar from "../../components/Avatar/Avatar";
 import { deleteAnswer } from "../../actions/question";
 
 const DisplayAnswers = ({ question, handleShare }) => {
@@ -14,6 +13,7 @@ const DisplayAnswers = ({ question, handleShare }) => {
   const handleDelete = (answerId, noOfAnswers) => {
     dispatch(deleteAnswer(id, answerId, noOfAnswers - 1));
   };
+
   return (
     <div>
       {question.answer.map((ans) => (
@@ -24,8 +24,7 @@ const DisplayAnswers = ({ question, handleShare }) => {
               <button type="button" onClick={handleShare}>
                 Share
               </button>
-              {User?.result?._id === ans.userId &&(
-                
+              {User?.result?._id === ans?.userId && (
                 <button
                   type="button"
                   onClick={() => handleDelete(ans._id, question.noOfAnswers)}
@@ -41,15 +40,15 @@ const DisplayAnswers = ({ question, handleShare }) => {
                 className="user-link"
                 style={{ color: "#76ABAE" }}
               >
-                <Avatar
-                  backgroundColor="#76ABAE"
-                  color="#EEEEEE"
-                  px="10px"
-                  py="5px"
-                  borderRadius='10px'
-                >
-                  {ans.userAnswered.charAt(0).toUpperCase()}
-                </Avatar>
+                <img
+                  src={ans.pic}
+                  alt="User profile"
+                  style={{
+                    width: "25px",
+                    height: "25px",
+                    borderRadius: "50%",
+                  }}
+                />
                 <div color="#76ABAE">{ans.userAnswered}</div>
               </Link>
             </div>

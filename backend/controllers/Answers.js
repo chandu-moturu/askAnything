@@ -3,14 +3,14 @@ import Questions from '../models/Questions.js'
 
 export const postAnswer= async(req,res)=>{
     const {id:_id}=req.params;
-    const {noOfAnswers,answerBody,userAnswered,userId}=req.body;
+    const {noOfAnswers,answerBody,userAnswered,userId,pic}=req.body;
     if(!mongoose.Types.ObjectId.isValid(_id)){
         res.status(404).json('question unavailable...')
         res.end()
     }
     updateNoOfQuestions(_id,noOfAnswers)
     try{
-        const updatedQuestion = await Questions.findByIdAndUpdate(_id,{$addToSet:{'answer':[{answerBody,userAnswered,userId}]}})
+        const updatedQuestion = await Questions.findByIdAndUpdate(_id,{$addToSet:{'answer':[{answerBody,userAnswered,userId,pic}]}})
         res.status(200).json(updatedQuestion)
         res.end()
     }

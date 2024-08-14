@@ -7,9 +7,8 @@ const usersReducer =(states=[],action)=>{
 
         case 'UPDATE_CURRENT_USER':
             
-            const newList= states.map((state)=>state._id === action.payload.id ? action.payload : state)
-            let newState=[...states,...newList]
-            return newState
+            const updatedList = states.map(state => state._id === action.payload._id ? action.payload : state);
+            return [...updatedList];
         default:
             return states;
     }

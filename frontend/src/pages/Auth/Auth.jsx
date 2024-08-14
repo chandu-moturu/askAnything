@@ -14,8 +14,8 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState();
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [pic,setPic]= useState();
+  // const [loading, setLoading] = useState(false);
+  const [pic, setPic] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,32 +39,19 @@ const Auth = () => {
       if (!phone) {
         alert("Enter your phone number");
       }
-      dispatch(signup({ name, email, phone, password,pic}, navigate));
+      dispatch(signup({ name, email, phone, password, pic}, navigate));
     } else {
       dispatch(login({ email, password }, navigate));
     }
   };
 
-  const postDetails = (pic) =>{
-    setLoading(true);
-    if(pic === undefined){
-      console.log("error");
-    }
-
-    if(pic.type === "image/jpeg" || pic.type === "image/png"){
-      const data = new FormData();
-      data.append("file",pic);
-      data.append("upload_preset","Cluster");
-      data.append("cloud_name", "chandu-moturu");
-      fetch("https://api.cloudinary.com/v1_1/chandu-moturu/image/upload",{method:'post',body:data}).then((res) => res.json()).then(data=>{
-        setPic(data.url.toString());
-        console.log(data.url.toString());
-        setLoading(false);
-      })
-    }else{
-      alert('error in image');
-    }
-  }
+ 
+   const postDetails = async (e) => {
+     const file = e.target.files[0];
+     const base64 = await convertToBase64(file);
+     console.log(base64);
+     setPic(base64);
+   };
 
   return (
     <section className="auth-section">
@@ -162,11 +149,10 @@ const Auth = () => {
               <h4>Upload Profile pic</h4>
               <input
                 type="file"
-                id="name"
                 name="name"
                 accept="image/*"
                 onChange={(e) => {
-                  postDetails(e.target.files[0]);
+                  postDetails(e);
                 }}
               />
             </label>
@@ -195,7 +181,7 @@ const Auth = () => {
             type="button"
             className="handle-switch-btn"
             onClick={handleSwitch}
-            isLoading={loading}
+           
           >
             {isSignup ? "log in" : "sign up"}
           </button>
@@ -206,3 +192,18 @@ const Auth = () => {
 };
 
 export default Auth;
+
+
+
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+}

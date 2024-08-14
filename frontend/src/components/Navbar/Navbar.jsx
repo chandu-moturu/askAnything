@@ -58,17 +58,22 @@ const Navbar = () => {
         ) : (
           <>
             <Avatar
-              backgroundColor="#76abae"
-              px="12px"
-              py="7px"
-              borderRadius="50%"
-              color="white"
+              // backgroundColor="#76abae"
+              // px="12px"
+              // py="7px"
+              // borderRadius="50%"
+              // color="white"
             >
               <Link
                 to={`/Users/${User?.result?._id}`}
                 style={{ color: "white", textDecoration: "none" }}
               >
-                {User?.result?.name.charAt(0).toUpperCase()}
+                {User?.result?.pic ? (
+                <img src={User.result.pic} alt="User profile" style={{width:'30px',height:'30px',borderRadius:'50%'}}/>
+                ) : (
+                  User?.result?.name.charAt(0).toUpperCase()
+                )}
+                
               </Link>
             </Avatar>
             <Link to="/" className="nav-item nav-links" onClick={handleLogout}>

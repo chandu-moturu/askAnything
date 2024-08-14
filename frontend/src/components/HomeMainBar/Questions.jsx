@@ -16,7 +16,7 @@ const Questions = ({question}) => {
           <p>answers</p>
         </div>
       </div>
-
+      
       <div className="display-question-details">
         <Link to={`/Questions/${question._id}`} className="question-title-link">
           {question.questionTitle}

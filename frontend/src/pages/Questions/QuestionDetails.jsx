@@ -9,9 +9,9 @@ import { voteQuestion } from "../../actions/question";
 import upvote from "../../assets/icons8-slide-up-50.png";
 import downvote from "../../assets/icons8-slide-up-50.png";
 import "./Questions.css";
-import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswers from "./DisplayAnswers";
 import { postAnswer, deleteQuestion } from "../../actions/question";
+
 const QuestionDetails = () => {
   const { id } = useParams();
   const questionsList = useSelector((state) => state.questionsReducer);
@@ -21,7 +21,7 @@ const QuestionDetails = () => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
-  const url = "http://localhost:3000";
+  const url = "https://askc.netlify.app/";
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
@@ -38,8 +38,9 @@ const QuestionDetails = () => {
               id,
               noOfAnswers: answerLength + 1,
               answerBody: Answer,
-              userAnswered: User.result.name,
-              userId: User.result._id,
+              userAnswered:User.result.name,
+              userId:User.result._id,
+              pic:User.result.pic,
             },
             Navigate
           )
@@ -88,12 +89,20 @@ const QuestionDetails = () => {
                         className="votes-icon"
                         onClick={handleUpVote}
                       />
-                      <p style={{width:'10px', textAlign:'center',paddingLeft:'2px'}}>{question.upVote.length - question.downVote.length}</p>
+                      <p
+                        style={{
+                          width: "10px",
+                          textAlign: "center",
+                          paddingLeft: "2px",
+                        }}
+                      >
+                        {question.upVote.length - question.downVote.length}
+                      </p>
                       <img
                         src={downvote}
                         alt="downvote"
                         width="18"
-                        style={{rotate:'180deg',marginTop:'5px'}}
+                        style={{ rotate: "180deg", marginTop: "5px" }}
                         className="votes-icon"
                         onClick={handleDownVote}
                       />
@@ -106,31 +115,37 @@ const QuestionDetails = () => {
                         })}
                       </div>
                     </div>
-                      <div className="question-actions-user">
-                        <div className="action-button">
-                          <button type="button" onClick={handleShare} >
-                            Share
+                    <div className="question-actions-user">
+                      <div className="action-button">
+                        <button type="button" onClick={handleShare}>
+                          Share
+                        </button>
+                        {User?.result?._id === question.userId && (
+                          <button type="button" onClick={handleDelete}>
+                            Delete
                           </button>
-                          {User?.result?._id === question.userId && (
-                            <button type="button" onClick={handleDelete} >
-                              Delete
-                            </button>
-                          )}
-                        </div>
-                        <div>
-                          <p>asked {moment(question.askedOn).fromNow()}</p>
-                          <Link
-                            to={`/users/${question.userId}`}
-                            className="user-link"
-                            style={{ color: "#76ABAE", fontWeight:'600'}}
-                          >
-                            <Avatar backgroundColor="#76ABAE" px="10px" py="5px" borderRadius='10px' color='#EEEEEE'>
-                              {question.userPosted.charAt(0).toUpperCase()}
-                            </Avatar>
-                            <div>{question.userPosted}</div>
-                          </Link>
-                        </div>
+                        )}
                       </div>
+                      <div>
+                        <p>asked {moment(question.askedOn).fromNow()}</p>
+                        <Link
+                          to={`/users/${question.userId}`}
+                          className="user-link"
+                          style={{ color: "#76ABAE", fontWeight: "600" }}
+                        >
+                          <img
+                            src={question.pic}
+                            alt="User profile"
+                            style={{
+                              width: "25px",
+                              height: "25px",
+                              borderRadius: "50%",
+                            }}
+                          />
+                          <div>{question.userPosted}</div>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </section>
 
@@ -157,19 +172,25 @@ const QuestionDetails = () => {
                       id=""
                       cols="30"
                       rows="10"
+                      value={Answer}
                       onChange={(e) => setAnswer(e.target.value)}
                     ></textarea>
                     <input
                       type="Submit"
                       className="post-ans-btn"
-                      value="Post Your Answer"
+                      defaultValue="Post Your Answer"
                     />
                   </form>
                 </section>
                 <p>
                   Browser other question questionTags{" "}
                   {question.questionTags.map((tag) => (
-                    <Link to="/Tags" key={tag} className="ans-tags" style={{color:'#76ABAE', textDecoration:"none"}}>
+                    <Link
+                      to="/Tags"
+                      key={tag}
+                      className="ans-tags"
+                      style={{ color: "#76ABAE", textDecoration: "none" }}
+                    >
                       {tag}
                     </Link>
                   ))}{" "}
@@ -177,7 +198,8 @@ const QuestionDetails = () => {
                   <Link
                     to="/AskQuestion"
                     style={{ textDecoration: "none", color: "#76ABAE" }}
-                  >{" "}
+                  >
+                    {" "}
                     Ask your Own question
                   </Link>
                 </p>

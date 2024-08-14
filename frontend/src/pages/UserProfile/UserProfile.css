@@ -7,10 +7,12 @@
   color: #eeeeee;
 }
 
+
 .user-details {
   display: flex;
   align-items: flex-start;
   color: #eeeeee;
+  gap: 20px;
 }
 .tags_watched {
   color: #76abae;

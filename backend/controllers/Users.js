@@ -8,7 +8,7 @@ export const getAllUsers = asyncHandler(async(req,res)=>{
         const allUsers=await users.find({});
         const allUserDetails = []
         allUsers.forEach(user=>{
-            allUserDetails.push({_id:user._id,name:user.name,about:user.about,tags:user.tags,joinedOn:user.joinedOn})
+            allUserDetails.push({_id:user._id,name:user.name,about:user.about,tags:user.tags,joinedOn:user.joinedOn,pic:user.pic})
 
         })
         res.status(200).json(allUserDetails);
